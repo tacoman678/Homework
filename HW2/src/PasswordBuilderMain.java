@@ -56,7 +56,6 @@ public class PasswordBuilderMain extends JFrame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		//SCRABBLE TITLE
 		JLabel password = new JLabel("Password Tester");
 		password.setHorizontalAlignment(SwingConstants.CENTER);
 		password.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
