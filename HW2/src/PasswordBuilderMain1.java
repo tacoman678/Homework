@@ -3,21 +3,18 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollBar;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.JButton;
 
-public class PasswordBuilderMain extends JFrame {
+public class PasswordBuilderMain1 {
 
+	private JFrame frame;
 	private JTextField enterPassword;
 	private JTextField showResult;
 	private JButton testPassword;
-	private JFrame frame;
 	private JLabel password;
 	/**
 	 * Launch the application.
@@ -26,19 +23,11 @@ public class PasswordBuilderMain extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PasswordBuilderMain frame = new PasswordBuilderMain();
-					frame.setVisible(true);
+					PasswordBuilderMain1 window = new PasswordBuilderMain1();
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}
-		});
-	}
-	public PasswordBuilderMain() {
-		intialize();
-		testPassword.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TestPassword();
 			}
 		});
 	}
@@ -48,14 +37,25 @@ public class PasswordBuilderMain extends JFrame {
 		showResult.setText(pass.getOutput());
 	}
 	/**
-	 * Create the frame.
+	 * Create the application.
 	 */
-	private void intialize() {
+	public PasswordBuilderMain1() {
+		initialize();
+		testPassword.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TestPassword();
+			}
+		});
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-
+		
 		JLabel password = new JLabel("Password Tester");
 		password.setHorizontalAlignment(SwingConstants.CENTER);
 		password.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
@@ -78,7 +78,6 @@ public class PasswordBuilderMain extends JFrame {
 		showResult.setBounds(80, 144, 270, 64);
 		frame.getContentPane().add(showResult);
 		showResult.setColumns(10);
-
 	}
 
 }
